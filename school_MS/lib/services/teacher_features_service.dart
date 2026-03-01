@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+import 'activity_service.dart';
 import '../models/assignment_model.dart';
 import '../models/result_model.dart';
 import '../models/attendance_model.dart';
@@ -34,6 +35,7 @@ class TeacherFeaturesService {
       final path = await _localPath;
       final file = File('$path/assignments.txt');
       await file.writeAsString('${item.title},${item.description},${item.className},${item.section},${item.dueDate},${item.teacherEmail}\n', mode: FileMode.append);
+      await ActivityService().logAction(item.teacherEmail, 'teacher', 'Added assignment: ${item.title}');
       return true;
     } catch(e) { return false; }
   }
@@ -56,6 +58,7 @@ class TeacherFeaturesService {
       }
       if (updated) {
         await file.writeAsString(lines.join('\n') + (lines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction(newItem.teacherEmail, 'teacher', 'Updated assignment: ${newItem.title}');
         return true;
       }
       return false;
@@ -84,6 +87,7 @@ class TeacherFeaturesService {
       final path = await _localPath;
       final file = File('$path/results.txt');
       await file.writeAsString('${item.examName},${item.studentEmail},${item.subject},${item.marks},${item.teacherEmail}\n', mode: FileMode.append);
+      await ActivityService().logAction(item.teacherEmail, 'teacher', 'Added result for: ${item.studentEmail}');
       return true;
     } catch(e) { return false; }
   }
@@ -106,6 +110,7 @@ class TeacherFeaturesService {
       }
       if (updated) {
         await file.writeAsString(lines.join('\n') + (lines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction(newItem.teacherEmail, 'teacher', 'Updated result for: ${newItem.studentEmail}');
         return true;
       }
       return false;
@@ -134,6 +139,7 @@ class TeacherFeaturesService {
       final path = await _localPath;
       final file = File('$path/attendance.txt');
       await file.writeAsString('${item.date},${item.studentEmail},${item.status},${item.teacherEmail}\n', mode: FileMode.append);
+      await ActivityService().logAction(item.teacherEmail, 'teacher', 'Marked attendance: ${item.studentEmail} is ${item.status}');
       return true;
     } catch(e) { return false; }
   }
@@ -156,6 +162,7 @@ class TeacherFeaturesService {
       }
       if (updated) {
         await file.writeAsString(lines.join('\n') + (lines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction(newItem.teacherEmail, 'teacher', 'Updated attendance: ${newItem.studentEmail} is ${newItem.status}');
         return true;
       }
       return false;
@@ -184,6 +191,7 @@ class TeacherFeaturesService {
       final path = await _localPath;
       final file = File('$path/timetable.txt');
       await file.writeAsString('${item.day},${item.time},${item.subject},${item.className},${item.section},${item.teacherEmail}\n', mode: FileMode.append);
+      await ActivityService().logAction(item.teacherEmail, 'teacher', 'Added timetable entry: ${item.subject}');
       return true;
     } catch(e) { return false; }
   }
@@ -206,6 +214,7 @@ class TeacherFeaturesService {
       }
       if (updated) {
         await file.writeAsString(lines.join('\n') + (lines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction(newItem.teacherEmail, 'teacher', 'Updated timetable entry: ${newItem.subject}');
         return true;
       }
       return false;
@@ -234,6 +243,7 @@ class TeacherFeaturesService {
       final path = await _localPath;
       final file = File('$path/notices.txt');
       await file.writeAsString('${item.title},${item.content},${item.date},${item.teacherEmail}\n', mode: FileMode.append);
+      await ActivityService().logAction(item.teacherEmail, 'teacher', 'Posted notice: ${item.title}');
       return true;
     } catch(e) { return false; }
   }
@@ -256,6 +266,7 @@ class TeacherFeaturesService {
       }
       if (updated) {
         await file.writeAsString(lines.join('\n') + (lines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction(newItem.teacherEmail, 'teacher', 'Updated notice: ${newItem.title}');
         return true;
       }
       return false;

@@ -1,0 +1,12 @@
+com/schoolmate/tests/FullWorkflowTest.class
+com/schoolmate/pages/SignupPage.class
+com/schoolmate/tests/LoginTest.class
+com/schoolmate/pages/TeacherFeaturesPage.class
+com/schoolmate/tests/AuthTests.class
+com/schoolmate/pages/DashboardPage.class
+com/schoolmate/pages/ActivityLogPage.class
+com/schoolmate/base/BaseTest.class
+com/schoolmate/pages/ManageUsersPage.class
+com/schoolmate/tests/TeacherStudentTests.class
+com/schoolmate/pages/LoginPage.class
+com/schoolmate/tests/AdminTests.class

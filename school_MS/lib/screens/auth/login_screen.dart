@@ -3,6 +3,7 @@ import '../../services/auth_service.dart';
 import '../dashboard/student_dashboard.dart';
 import '../dashboard/teacher_dashboard.dart';
 import '../dashboard/admin_dashboard.dart';
+import '../../services/activity_service.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
   String _selectedRole = 'student'; // default role
   final AuthService _authService = AuthService();
+  final ActivityService _activityService = ActivityService();
 
   void _login() async {
     final email = _emailController.text.trim();
@@ -31,13 +33,14 @@ class _LoginScreenState extends State<LoginScreen> {
     
     if (user != null) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login successful')));
+      await _activityService.logAction(email, _selectedRole, 'Logged in');
       // Navigate to respective dashboard
       if (_selectedRole == 'student') {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => StudentDashboard(user: user)));
       } else if (_selectedRole == 'teacher') {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => TeacherDashboard(user: user)));
       } else if (_selectedRole == 'admin') {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => AdminDashboard()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => AdminDashboard(user: user)));
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Invalid credentials')));

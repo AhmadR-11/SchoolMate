@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+import 'activity_service.dart';
 import '../models/user_model.dart';
 
 class AuthService {
@@ -33,6 +34,7 @@ class AuthService {
       // Add new user: name,email,password
       final userString = '$name,$email,$password\n';
       await file.writeAsString(userString, mode: FileMode.append);
+      await ActivityService().logAction(email, role, 'User signed up: $name');
       return true;
     } catch (e) {
       print('Signup Error: $e');
@@ -118,6 +120,7 @@ class AuthService {
       if (deleted) {
         // Rewrite file with the deleted user removed
         await file.writeAsString(updatedLines.join('\n') + (updatedLines.isNotEmpty ? '\n' : ''));
+        await ActivityService().logAction('System', 'admin', 'Deleted/Blocked $role user: $email');
         return true;
       }
       return false; // User not found

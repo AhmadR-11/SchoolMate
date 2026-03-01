@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../services/activity_service.dart';
 import '../../models/user_model.dart';
 import '../auth/login_screen.dart';
 import '../student/profile/student_profile_screen.dart';
@@ -15,6 +16,7 @@ class StudentDashboard extends StatelessWidget {
   const StudentDashboard({super.key, required this.user});
 
   void _logout(BuildContext context) {
+    ActivityService().logAction(user.email, 'student', 'Logged out');
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -173,7 +175,10 @@ class StudentDashboard extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(subtitle),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: onTap,
+        onTap: () {
+          ActivityService().logAction(user.email, 'student', 'Viewed $title');
+          onTap();
+        },
       ),
     );
   }

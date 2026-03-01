@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../services/auth_service.dart';
+import '../../services/activity_service.dart';
 import 'login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _obscurePassword = true;
   String _selectedRole = 'student'; // Default selection
   final AuthService _authService = AuthService();
+  final ActivityService _activityService = ActivityService();
 
   void _signup() async {
     final name = _nameController.text.trim();
@@ -30,6 +32,7 @@ class _SignupScreenState extends State<SignupScreen> {
     
     if (success) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signup successful. Please login.')));
+      await _activityService.logAction(email, _selectedRole, 'Signed up as $name');
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signup failed. Email might already exist.')));

@@ -51,6 +51,16 @@ lib/
     ├── dashboard/      # Role-based landing hubs
     ├── student/        # Student portal features
     └── teacher/        # Teacher management features
+
+## 🧪 Automated Testing
+The project includes a comprehensive **Appium Framework** for Android automation:
+- **Language**: Java
+- **Build Tool**: Maven
+- **Test Runner**: TestNG
+- **Design Pattern**: Page Object Model (POM)
+- **Location**: `/appium_tests`
+
+Refer to the [Appium README](appium_tests/README.md) for setup and execution instructions.
 ```
 
 ## 🚀 Getting Started

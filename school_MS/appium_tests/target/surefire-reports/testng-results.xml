@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-01T22:00:32 PKT" name="SchoolMate Test Suite" finished-at="2026-03-01T22:06:54 PKT" duration-ms="382351">
+    <groups>
+    </groups>
+    <test started-at="2026-03-01T22:00:32 PKT" name="App Automation Tests" finished-at="2026-03-01T22:06:54 PKT" duration-ms="382351">
+      <class name="com.schoolmate.tests.AdminTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AdminTests@6193932a]" started-at="2026-03-01T22:04:47 PKT" name="setUp" finished-at="2026-03-01T22:04:58 PKT" duration-ms="10928" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testClearActivityLogHistory()[pri:1, instance:com.schoolmate.tests.AdminTests@6193932a]" started-at="2026-03-01T22:04:58 PKT" name="testClearActivityLogHistory" finished-at="2026-03-01T22:05:48 PKT" duration-ms="49871" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClearActivityLogHistory -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AdminTests@6193932a]" started-at="2026-03-01T22:05:48 PKT" name="tearDown" finished-at="2026-03-01T22:05:49 PKT" duration-ms="883" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.schoolmate.tests.AdminTests -->
+      <class name="com.schoolmate.tests.AuthTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:02:15 PKT" name="setUp" finished-at="2026-03-01T22:02:27 PKT" duration-ms="11201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSuccessfulStudentSignup()[pri:1, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:02:27 PKT" name="testSuccessfulStudentSignup" finished-at="2026-03-01T22:02:48 PKT" duration-ms="21113" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSuccessfulStudentSignup -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:02:48 PKT" name="tearDown" finished-at="2026-03-01T22:02:48 PKT" duration-ms="554" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:02:48 PKT" name="setUp" finished-at="2026-03-01T22:02:59 PKT" duration-ms="10692" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testDuplicateEmailPrevention()[pri:2, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:02:59 PKT" name="testDuplicateEmailPrevention" finished-at="2026-03-01T22:03:20 PKT" duration-ms="21498" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDuplicateEmailPrevention -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:03:20 PKT" name="tearDown" finished-at="2026-03-01T22:03:21 PKT" duration-ms="793" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:03:21 PKT" name="setUp" finished-at="2026-03-01T22:03:33 PKT" duration-ms="11541" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSuccessfulTeacherLogin()[pri:3, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:03:33 PKT" name="testSuccessfulTeacherLogin" finished-at="2026-03-01T22:03:50 PKT" duration-ms="17567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSuccessfulTeacherLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:03:50 PKT" name="tearDown" finished-at="2026-03-01T22:03:51 PKT" duration-ms="785" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:03:51 PKT" name="setUp" finished-at="2026-03-01T22:04:02 PKT" duration-ms="10786" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testInvalidPasswordHandling()[pri:4, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:04:02 PKT" name="testInvalidPasswordHandling" finished-at="2026-03-01T22:04:19 PKT" duration-ms="16645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidPasswordHandling -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:04:19 PKT" name="tearDown" finished-at="2026-03-01T22:04:19 PKT" duration-ms="804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:04:19 PKT" name="setUp" finished-at="2026-03-01T22:04:30 PKT" duration-ms="10402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLoginRoleSecurity()[pri:5, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:04:30 PKT" name="testLoginRoleSecurity" finished-at="2026-03-01T22:04:47 PKT" duration-ms="16686" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginRoleSecurity -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.AuthTests@71b1176b]" started-at="2026-03-01T22:04:47 PKT" name="tearDown" finished-at="2026-03-01T22:04:47 PKT" duration-ms="663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.schoolmate.tests.AuthTests -->
+      <class name="com.schoolmate.tests.FullWorkflowTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.FullWorkflowTest@159f197]" started-at="2026-03-01T22:05:49 PKT" name="setUp" finished-at="2026-03-01T22:06:00 PKT" duration-ms="11434" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSignupAndActivityCheck()[pri:1, instance:com.schoolmate.tests.FullWorkflowTest@159f197]" started-at="2026-03-01T22:06:00 PKT" name="testSignupAndActivityCheck" finished-at="2026-03-01T22:06:54 PKT" duration-ms="53214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSignupAndActivityCheck -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.FullWorkflowTest@159f197]" started-at="2026-03-01T22:06:54 PKT" name="tearDown" finished-at="2026-03-01T22:06:54 PKT" duration-ms="645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.schoolmate.tests.FullWorkflowTest -->
+      <class name="com.schoolmate.tests.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:00:32 PKT" name="setUp" finished-at="2026-03-01T22:00:50 PKT" duration-ms="18239" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSuccessfulAdminLogin()[pri:1, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:00:50 PKT" name="testSuccessfulAdminLogin" finished-at="2026-03-01T22:01:11 PKT" duration-ms="20946" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSuccessfulAdminLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:01:11 PKT" name="tearDown" finished-at="2026-03-01T22:01:12 PKT" duration-ms="594" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:01:12 PKT" name="setUp" finished-at="2026-03-01T22:01:23 PKT" duration-ms="10870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLoginWithWrongCredentials()[pri:2, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:01:23 PKT" name="testFailedLoginWithWrongCredentials" finished-at="2026-03-01T22:02:15 PKT" duration-ms="52299" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLoginWithWrongCredentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.schoolmate.tests.LoginTest@12d4bf7e]" started-at="2026-03-01T22:02:15 PKT" name="tearDown" finished-at="2026-03-01T22:02:15 PKT" duration-ms="598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.schoolmate.tests.LoginTest -->
+    </test> <!-- App Automation Tests -->
+  </suite> <!-- SchoolMate Test Suite -->
+</testng-results>

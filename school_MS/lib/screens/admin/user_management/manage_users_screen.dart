@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../../models/user_model.dart';
-import '../../../services/auth_service.dart';
+import 'package:school_ms/models/user_model.dart';
+import 'package:school_ms/services/auth_service.dart';
+import 'package:school_ms/services/activity_service.dart';
 
 class ManageUsersScreen extends StatefulWidget {
   final String role; // 'student' or 'teacher'
+  final UserModel? admin;
 
-  const ManageUsersScreen({super.key, required this.role});
+  const ManageUsersScreen({super.key, required this.role, this.admin});
 
   @override
   _ManageUsersScreenState createState() => _ManageUsersScreenState();
@@ -13,6 +15,7 @@ class ManageUsersScreen extends StatefulWidget {
 
 class _ManageUsersScreenState extends State<ManageUsersScreen> {
   final AuthService _authService = AuthService();
+  final ActivityService _activityService = ActivityService();
   List<UserModel> _users = [];
   bool _isLoading = true;
 
@@ -96,6 +99,7 @@ class _ManageUsersScreenState extends State<ManageUsersScreen> {
                     Navigator.pop(context);
 
                     if (success) {
+                      await _activityService.logAction(widget.admin?.email ?? 'System', 'admin', 'Added ${widget.role}: $name ($email)');
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('${widget.role} added successfully')));
                       _loadUsers();
@@ -119,6 +123,7 @@ class _ManageUsersScreenState extends State<ManageUsersScreen> {
     if (!mounted) return;
     
     if (success) {
+      await _activityService.logAction(widget.admin?.email ?? 'System', 'admin', 'Deleted/Blocked ${widget.role}: $email');
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('User deleted successfully')));
       _loadUsers();

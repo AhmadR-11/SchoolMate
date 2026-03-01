@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:school_ms/models/user_model.dart';
+import 'package:school_ms/services/activity_service.dart';
 import '../admin/class_management/manage_classes_screen.dart';
 import '../admin/user_management/manage_users_screen.dart';
 import '../admin/subject_management/manage_subjects_screen.dart';
@@ -6,13 +8,15 @@ import '../admin/attendance_control/attendance_control_screen.dart';
 import '../admin/exam_results/exam_results_screen.dart';
 import '../admin/fees_management/fees_management_screen.dart';
 import '../admin/system_settings/system_settings_screen.dart';
-import '../admin/user_management/manage_users_screen.dart';
+import '../admin/activity_log_screen.dart';
 import '../auth/login_screen.dart';
 
 class AdminDashboard extends StatelessWidget {
-  const AdminDashboard({super.key});
+  final UserModel? user;
+  const AdminDashboard({super.key, this.user});
 
   void _logout(BuildContext context) {
+    ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Logged out');
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -53,10 +57,11 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Add, View, or Block Students'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Manage Students');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ManageUsersScreen(role: 'student'),
+                      builder: (context) => ManageUsersScreen(role: 'student', admin: user),
                     ),
                   );
                 },
@@ -70,10 +75,11 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Add, View, or Block Teachers'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Manage Teachers');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ManageUsersScreen(role: 'teacher'),
+                      builder: (context) => ManageUsersScreen(role: 'teacher', admin: user),
                     ),
                   );
                 },
@@ -87,6 +93,7 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Create Classes & Assign Teachers'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Manage Classes');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ManageClassesScreen()));
                 },
               ),
@@ -99,6 +106,7 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Add & Assign Subjects'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Subject Management');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ManageSubjectsScreen()));
                 },
               ),
@@ -111,6 +119,7 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('View full attendance & edit records'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Attendance Control');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendanceControlScreen()));
                 },
               ),
@@ -123,6 +132,7 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Create exams & track results'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Exam & Results');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ExamResultsScreen()));
                 },
               ),
@@ -135,6 +145,7 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Define fee structure & track payments'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to Fees Management');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const FeesManagementScreen()));
                 },
               ),
@@ -147,7 +158,19 @@ class AdminDashboard extends StatelessWidget {
                 subtitle: const Text('Manage Academic year & School info'),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  ActivityService().logAction(user?.email ?? 'Unknown', 'admin', 'Navigated to System Settings');
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const SystemSettingsScreen()));
+                },
+              ),
+            ),
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.history, size: 40, color: Colors.blueGrey),
+                title: const Text('Activity Log', style: TextStyle(fontSize: 20)),
+                subtitle: const Text('View system-wide actions'),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ActivityLogScreen()));
                 },
               ),
             ),
