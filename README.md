@@ -1,1 +1,1 @@
-# FuelLog
+# SchoolMate
