@@ -1,98 +1,85 @@
 # SchoolMate - School Management System
 
-## Project Overview
-SchoolMate is a comprehensive School Management System built with **Flutter**. It provides a robust platform for managing school operations through three primary roles: **Admin**, **Teacher**, and **Student**. The application emphasizes modularity, ease of use, and local data persistence.
+## 🌟 1. Project Overview
+**SchoolMate** is a mobile-first School Management System (SMS) built using the **Flutter** framework. It is designed to digitize school operations by providing three distinct user roles:
 
-## Key Features
+- **Admin**: Manages school infrastructure (classes, subjects, fees) and oversees teachers/students.
+- **Teacher**: Handles attendance, assignments, and exam results.
+- **Student**: Tracks academic progress, timetables, and notices.
 
-### 🔐 Secure Authentication
-- **Role-Based Access**: Specialized workflows for Admins, Teachers, and Students.
-- **Signup/Login**: Secure credential management and password toggle visibility.
-- **Data Persistence**: Localized text-file storage for credentials and role-specific data.
+The project uses a **Local File Persistence** system, making it lightweight and highly portable.
 
-### 🛡️ Admin Dashboard (Governance)
-- **User Management**: Create student/teacher accounts, and manage user statuses (Block/Delete).
-- **Academic Structure**: Manage Classes, Sections, and link them to classrooms.
-- **Subject Control**: Define subjects and assign them to specific teachers and classes.
-- **Financial Tracking**: Define fee structures and track payment histories.
-- **System Configuration**: Manage school meta-data (Name, Address, Academic Year).
+## 🧪 2. Purpose of Appium
+We use **Appium** for Automated Mobile Testing. Instead of manually checking every feature after a code change, we use Java scripts to:
+- Automatically control an Android emulator.
+- Verify critical workflows (Login, Signup, User Management).
+- Ensure that new updates don't break existing functionality (Regression Testing).
 
-### 👨‍🏫 Teacher Dashboard (Classroom Management)
-- **Profile & Subjects**: View assigned teaching modules and personal profiles.
-- **Attendance Logger**: Mark, view, and edit daily student attendance with visual status indicators.
-- **Assignment Hub**: Create, update, and manage student assignments and deadlines.
-- **Results Processor**: Input, update, and publish exam marks and performance reviews.
-- **Scheduling**: View and manage personalized weekly/daily timetables.
-- **Communication**: Post and manage class-specific notices.
+## 🛠️ 3. Tools & Technologies Used
+| Category | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Mobile App** | Flutter (Dart) | Cross-platform UI development. |
+| **Automation Language**| Java 17 | Logic for test cases. |
+| **Build Tool** | Maven | Managing Java dependencies. |
+| **Testing Framework** | TestNG | Test organization and assertions. |
+| **Automation Driver** | Appium | Bridge between code and Android OS. |
+| **CI/CD** | GitHub Actions | Automated build and test pipeline. |
 
-### 🎓 Student Dashboard (Learning Portal)
-- **Academic Reports**: View real-time attendance percentages and daily status logs.
-- **Assignments**: Track pending work, check statuses, and simulate submission workflows.
-- **Grades Hub**: View exam results, subject-wise grades, and GPA calculations.
-- **Timetable Access**: Interactive weekly view of student schedules.
-- **Notice Board**: Stay updated with school-wide and class-specific announcements.
-- **Fee Management**: View pending balances and transaction history.
-
-## 🛠️ Technology Stack
-- **Framework**: [Flutter](https://flutter.dev/) (Dart)
-- **UI Components**: Material Design 3
-- **Data Storage**: Local Text File Persistence (`path_provider`)
-- **State Management**: Stateful Widgets & Service-Oriented Architecture
-
-## 📂 Project Structure
+## 📂 4. Project Structure
 ```text
-lib/
-├── main.dart           # Application Entry Point
-├── models/             # Data structure definitions (User, Class, Subject, etc.)
-├── services/           # Business logic classes (Auth, Subject, Teacher features)
-└── screens/            # UI Layer
-    ├── admin/          # Administrative management modules
-    ├── auth/           # Authentication screens (Login/Signup)
-    ├── dashboard/      # Role-based landing hubs
-    ├── student/        # Student portal features
-    └── teacher/        # Teacher management features
-
-## 🧪 Automated Testing
-The project includes a comprehensive **Appium Framework** for Android automation:
-- **Language**: Java
-- **Build Tool**: Maven
-- **Test Runner**: TestNG
-- **Design Pattern**: Page Object Model (POM)
-- **Location**: `/appium_tests`
-
-Refer to the [Appium README](appium_tests/README.md) for setup and execution instructions.
+school_MS/
+├── lib/                        # Flutter Application Source
+│   ├── models/                 # Data Models (User, Class, etc.)
+│   ├── screens/                # UI Layer (Admin, Teacher, Student modules)
+│   ├── services/               # Business Logic & File Persistence
+│   └── main.dart               # App Entry Point
+├── appium_tests/               # Automation Framework
+│   ├── src/test/java/          # Test Scripts & Page Objects
+│   ├── src/test/resources/     # TestNG Configurations
+│   └── pom.xml                 # Maven Project Config
+├── .github/workflows/          # CI/CD Pipeline (GitHub Actions)
+└── build/app/outputs/flutter-apk/ # Generated App Binaries
 ```
 
-## 🚀 Getting Started
+## 📸 5. Screenshots
+![Dashboard Mockup](assets/dashboard_mockup.png)
+*Professional Mockup for the Admin Dashboard*
 
-### Prerequisites
-- [Flutter SDK](https://docs.flutter.dev/get-started/install)
-- [Dart SDK](https://dart.dev/get-dart)
-- An Emulator or Physical Device
+![Test Results Screenshot](assets/test_results.png)
+*Verified Automation: 9 Test Cases passing successfully in 6 minutes*
 
-### Installation
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/AhmadR-11/SchoolMate.git
-    ```
-2.  **Navigate to Directory**:
-    ```bash
-    cd school_MS
-    ```
-3.  **Install Dependencies**:
-    ```bash
-    flutter pub get
-    ```
-4.  **Launch the App**:
-    ```bash
-    flutter run
-    ```
+## 🚀 6. Getting Started (End-to-End Guide)
 
-## 📝 Design Decisions
-- **Text-Based Storage**: Chosen for simplicity and ease of portability as per the assignment requirements.
-- **Modular Services**: Logic is separated from UI components to ensure maintainability and scalability.
+### Step A: Cloning the Project
+```bash
+git clone https://github.com/AhmadR-11/SchoolMate.git
+cd SchoolMate/school_MS
+```
+
+### Step B: Setting up the App
+1. Install dependencies: `flutter pub get`
+2. Build the app file (APK):
+   ```bash
+   flutter build apk --debug
+   ```
+
+### Step C: Running Automated Tests Locally
+1. **Start Appium**: Run `appium` in your terminal.
+2. **Navigate to Tests**: `cd appium_tests`
+3. **Execute**:
+   ```bash
+   mvn test
+   ```
+
+## ⚙️ 7. Continuous Integration (CI)
+We use **GitHub Actions** to automate our testing on every push.
+- **Workflow**: Builds APK -> Starts Emulator -> Runs Appium Tests.
+- **Runner**: macOS logic for high-performance Android emulation.
+
+## 🌿 8. Git Workflow Strategy
+- **`application` branch**: Stable, production-ready code.
+- **`test` branch**: Feature branch for automation and CI updates.
 
 ---
 **Developed by:** AhmadR-11  
 **Project:** DevOps Assignment #1 - School Management System
-
